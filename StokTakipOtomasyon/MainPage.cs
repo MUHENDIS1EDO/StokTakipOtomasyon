@@ -17,35 +17,52 @@ namespace StokTakipOtomasyon
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void textbox_email_TextChanged(object sender, EventArgs e)
+        
+        private void mainPage_buttonExit_Click_1(object sender, EventArgs e)
         {
             
-        }
-
-        private void textbox_password_TextChanged(object sender, EventArgs e)
-        {
-            
+            DialogResult x = MessageBox.Show("Are you sure you want to exit?", "exit", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (x == DialogResult.Yes)
+                //Environment.Exit(0);
+                Application.Exit();
 
         }
 
         private void button_hideShow_Click(object sender, EventArgs e)
         {
-            if (textbox_password.PasswordChar == '*')
+            if (mainPage_textboxPassword.PasswordChar == '*')
             {
-                textbox_password.PasswordChar = '\0';
-                button_hideShow.Text = "HIDE";
+                mainPage_textboxPassword.PasswordChar = '\0';
+                mainPage_buttonHideShow.Text = "HIDE";
 
             }
-            else if (textbox_password.PasswordChar == '\0')
+            else if (mainPage_textboxPassword.PasswordChar == '\0')
             {
-                textbox_password.PasswordChar = '*';
-                button_hideShow.Text = "SHOW";
+                mainPage_textboxPassword.PasswordChar = '*';
+                mainPage_buttonHideShow.Text = "SHOW";
             }
         }
+
+        private void lbl_resetPassword_Click(object sender, EventArgs e)
+        {
+            ResetPassword resetPassword = new ResetPassword();
+            resetPassword.Show();
+        }
+
+
+        private void mainPage_buttonSignUp_Click(object sender, EventArgs e)
+        {
+            SignUp signUp = new SignUp();
+            signUp.Show();
+        }
+
+        private void mainPage_buttonLogin_Click(object sender, EventArgs e)
+        {
+            HomePage homePage = new HomePage();
+            homePage.Show();
+            this.Hide();
+        }
+
+        
     }
 }

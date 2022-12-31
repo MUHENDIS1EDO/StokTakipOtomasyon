@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace StokTakipOtomasyon
 {
-    public partial class ResetPassword : Form
+    public partial class ChangePassword : Form
     {
-        public ResetPassword()
+        public ChangePassword()
         {
             InitializeComponent();
         }
 
-        private void resetPassword_buttonVerify_Click(object sender, EventArgs e)
+        private void changePassword_buttonChange_Click(object sender, EventArgs e)
         {
-            ChangePassword changePassword = new ChangePassword();
-            changePassword.Show();
+            MessageBox.Show("Your password changed!");
             this.Close();
+
         }
 
-        private void resetPassword_buttonExit_Click(object sender, EventArgs e)
+        private void changePassword_buttonExit_Click(object sender, EventArgs e)
         {
             DialogResult x = MessageBox.Show("Are you sure you want to exit?", "exit", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (x == DialogResult.Yes)
