@@ -76,6 +76,12 @@
     <Compile Include="HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListingOfSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListingOfSale.Designer.cs">
+      <DependentUpon>ListingOfSale.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListOfProducts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,22 +101,71 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResetPassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ResetPassword.Designer.cs">
-      <DependentUpon>ResetPassword.cs</DependentUpon>
-    </Compile>
     <Compile Include="SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="StokTakipOtomasyonuDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StokTakipOtomasyonuDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StokTakipOtomasyonuDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StokTakipOtomasyonuDataSet10.xsd</DependentUpon>
+    </Compile>
     <Compile Include="StokTakipOtomasyonuDataSet11.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StokTakipOtomasyonuDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StokTakipOtomasyonuDataSet111.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StokTakipOtomasyonuDataSet111.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StokTakipOtomasyonuDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StokTakipOtomasyonuDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StokTakipOtomasyonuDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StokTakipOtomasyonuDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StokTakipOtomasyonuDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StokTakipOtomasyonuDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StokTakipOtomasyonuDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StokTakipOtomasyonuDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StokTakipOtomasyonuDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StokTakipOtomasyonuDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StokTakipOtomasyonuDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StokTakipOtomasyonuDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StokTakipOtomasyonuDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StokTakipOtomasyonuDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StokTakipOtomasyonuDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StokTakipOtomasyonuDataSet9.xsd</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
       <SubType>Form</SubType>
@@ -133,6 +188,9 @@
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ListingOfSale.resx">
+      <DependentUpon>ListingOfSale.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListOfProducts.resx">
       <DependentUpon>ListOfProducts.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,9 +201,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResetPassword.resx">
-      <DependentUpon>ResetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
@@ -162,6 +217,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="StokTakipOtomasyonuDataSet1.xsc">
+      <DependentUpon>StokTakipOtomasyonuDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StokTakipOtomasyonuDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet1.xss">
+      <DependentUpon>StokTakipOtomasyonuDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet10.xsc">
+      <DependentUpon>StokTakipOtomasyonuDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StokTakipOtomasyonuDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet10.xss">
+      <DependentUpon>StokTakipOtomasyonuDataSet10.xsd</DependentUpon>
+    </None>
     <None Include="StokTakipOtomasyonuDataSet11.xsc">
       <DependentUpon>StokTakipOtomasyonuDataSet11.xsd</DependentUpon>
     </None>
@@ -172,6 +249,105 @@
     </None>
     <None Include="StokTakipOtomasyonuDataSet11.xss">
       <DependentUpon>StokTakipOtomasyonuDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet111.xsc">
+      <DependentUpon>StokTakipOtomasyonuDataSet111.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet111.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StokTakipOtomasyonuDataSet111.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet111.xss">
+      <DependentUpon>StokTakipOtomasyonuDataSet111.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet2.xsc">
+      <DependentUpon>StokTakipOtomasyonuDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StokTakipOtomasyonuDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet2.xss">
+      <DependentUpon>StokTakipOtomasyonuDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet3.xsc">
+      <DependentUpon>StokTakipOtomasyonuDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StokTakipOtomasyonuDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet3.xss">
+      <DependentUpon>StokTakipOtomasyonuDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet4.xsc">
+      <DependentUpon>StokTakipOtomasyonuDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StokTakipOtomasyonuDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet4.xss">
+      <DependentUpon>StokTakipOtomasyonuDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet5.xsc">
+      <DependentUpon>StokTakipOtomasyonuDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StokTakipOtomasyonuDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet5.xss">
+      <DependentUpon>StokTakipOtomasyonuDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet6.xsc">
+      <DependentUpon>StokTakipOtomasyonuDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StokTakipOtomasyonuDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet6.xss">
+      <DependentUpon>StokTakipOtomasyonuDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet7.xsc">
+      <DependentUpon>StokTakipOtomasyonuDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StokTakipOtomasyonuDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet7.xss">
+      <DependentUpon>StokTakipOtomasyonuDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet8.xsc">
+      <DependentUpon>StokTakipOtomasyonuDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StokTakipOtomasyonuDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet8.xss">
+      <DependentUpon>StokTakipOtomasyonuDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet9.xsc">
+      <DependentUpon>StokTakipOtomasyonuDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StokTakipOtomasyonuDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StokTakipOtomasyonuDataSet9.xss">
+      <DependentUpon>StokTakipOtomasyonuDataSet9.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

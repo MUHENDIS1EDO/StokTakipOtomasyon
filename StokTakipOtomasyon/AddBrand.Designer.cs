@@ -50,6 +50,8 @@
             // 
             // AddBrand_comboboxCategory
             // 
+            this.AddBrand_comboboxCategory.BackColor = System.Drawing.SystemColors.Control;
+            this.AddBrand_comboboxCategory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddBrand_comboboxCategory.FormattingEnabled = true;
             this.AddBrand_comboboxCategory.Location = new System.Drawing.Point(81, 48);
             this.AddBrand_comboboxCategory.Name = "AddBrand_comboboxCategory";
@@ -76,6 +78,7 @@
             // 
             // AddBrand_textboxBrand
             // 
+            this.AddBrand_textboxBrand.BackColor = System.Drawing.SystemColors.Control;
             this.AddBrand_textboxBrand.Location = new System.Drawing.Point(81, 93);
             this.AddBrand_textboxBrand.Name = "AddBrand_textboxBrand";
             this.AddBrand_textboxBrand.Size = new System.Drawing.Size(141, 20);
@@ -83,18 +86,21 @@
             // 
             // AddBrand_buttonAdd
             // 
+            this.AddBrand_buttonAdd.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.AddBrand_buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddBrand_buttonAdd.Location = new System.Drawing.Point(147, 140);
             this.AddBrand_buttonAdd.Name = "AddBrand_buttonAdd";
             this.AddBrand_buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.AddBrand_buttonAdd.TabIndex = 26;
             this.AddBrand_buttonAdd.Text = "Add";
-            this.AddBrand_buttonAdd.UseVisualStyleBackColor = true;
+            this.AddBrand_buttonAdd.UseVisualStyleBackColor = false;
             this.AddBrand_buttonAdd.Click += new System.EventHandler(this.AddBrand_buttonAdd_Click);
             // 
             // AddBrand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(300, 200);
             this.Controls.Add(this.AddBrand_buttonAdd);
             this.Controls.Add(this.AddBrand_textboxBrand);

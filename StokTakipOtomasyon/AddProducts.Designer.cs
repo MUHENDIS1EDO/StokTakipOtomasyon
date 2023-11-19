@@ -45,6 +45,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.VarOlanUrunGroupBox = new System.Windows.Forms.GroupBox();
+            this.Brandtextbox = new System.Windows.Forms.TextBox();
+            this.Categorytextbox = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lblTotalStock = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -56,13 +60,12 @@
             this.SalePricetextbox = new System.Windows.Forms.TextBox();
             this.Stocktextbox = new System.Windows.Forms.TextBox();
             this.ProductNametextbox = new System.Windows.Forms.TextBox();
-            this.Brandcombobox = new System.Windows.Forms.ComboBox();
-            this.Categorycombobox = new System.Windows.Forms.ComboBox();
             this.StockCodetextbox = new System.Windows.Forms.TextBox();
             this.AddProducts_buttonAddExisting = new System.Windows.Forms.Button();
             this.AddProducts_buttonExit = new System.Windows.Forms.PictureBox();
-            this.lblTotalStock = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.AddProducts_labelWelcomeEmail = new System.Windows.Forms.Label();
+            this.AddProducts_labelWelcomeName = new System.Windows.Forms.Label();
+            this.AddProducts_labelWelcomeUserType = new System.Windows.Forms.Label();
             this.yeniUrunGroupBox.SuspendLayout();
             this.VarOlanUrunGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddProducts_buttonExit)).BeginInit();
@@ -94,6 +97,7 @@
             // 
             // textboxPurchasePrice
             // 
+            this.textboxPurchasePrice.BackColor = System.Drawing.SystemColors.Control;
             this.textboxPurchasePrice.Location = new System.Drawing.Point(91, 240);
             this.textboxPurchasePrice.Name = "textboxPurchasePrice";
             this.textboxPurchasePrice.Size = new System.Drawing.Size(121, 20);
@@ -101,6 +105,7 @@
             // 
             // textboxSalePrice
             // 
+            this.textboxSalePrice.BackColor = System.Drawing.SystemColors.Control;
             this.textboxSalePrice.Location = new System.Drawing.Point(91, 205);
             this.textboxSalePrice.Name = "textboxSalePrice";
             this.textboxSalePrice.Size = new System.Drawing.Size(121, 20);
@@ -108,13 +113,16 @@
             // 
             // textboxStock
             // 
+            this.textboxStock.BackColor = System.Drawing.SystemColors.Control;
             this.textboxStock.Location = new System.Drawing.Point(91, 170);
             this.textboxStock.Name = "textboxStock";
             this.textboxStock.Size = new System.Drawing.Size(121, 20);
             this.textboxStock.TabIndex = 12;
+            this.textboxStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textboxStock_KeyPress);
             // 
             // textboxProductName
             // 
+            this.textboxProductName.BackColor = System.Drawing.SystemColors.Control;
             this.textboxProductName.Location = new System.Drawing.Point(91, 135);
             this.textboxProductName.Name = "textboxProductName";
             this.textboxProductName.Size = new System.Drawing.Size(121, 20);
@@ -122,6 +130,8 @@
             // 
             // comboboxBrand
             // 
+            this.comboboxBrand.BackColor = System.Drawing.SystemColors.Control;
+            this.comboboxBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboboxBrand.FormattingEnabled = true;
             this.comboboxBrand.Location = new System.Drawing.Point(91, 99);
             this.comboboxBrand.Name = "comboboxBrand";
@@ -130,6 +140,8 @@
             // 
             // comboboxCategory
             // 
+            this.comboboxCategory.BackColor = System.Drawing.SystemColors.Control;
+            this.comboboxCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboboxCategory.FormattingEnabled = true;
             this.comboboxCategory.Location = new System.Drawing.Point(91, 63);
             this.comboboxCategory.Name = "comboboxCategory";
@@ -139,6 +151,7 @@
             // 
             // textboxStockCode
             // 
+            this.textboxStockCode.BackColor = System.Drawing.SystemColors.Control;
             this.textboxStockCode.Location = new System.Drawing.Point(91, 28);
             this.textboxStockCode.Name = "textboxStockCode";
             this.textboxStockCode.Size = new System.Drawing.Size(121, 20);
@@ -146,12 +159,14 @@
             // 
             // AddProducts_buttonAddNew
             // 
+            this.AddProducts_buttonAddNew.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.AddProducts_buttonAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddProducts_buttonAddNew.Location = new System.Drawing.Point(137, 297);
             this.AddProducts_buttonAddNew.Name = "AddProducts_buttonAddNew";
             this.AddProducts_buttonAddNew.Size = new System.Drawing.Size(75, 23);
-            this.AddProducts_buttonAddNew.TabIndex = 7;
+            this.AddProducts_buttonAddNew.TabIndex = 15;
             this.AddProducts_buttonAddNew.Text = "Add";
-            this.AddProducts_buttonAddNew.UseVisualStyleBackColor = true;
+            this.AddProducts_buttonAddNew.UseVisualStyleBackColor = false;
             this.AddProducts_buttonAddNew.Click += new System.EventHandler(this.AddProducts_buttonAddNew_Click);
             // 
             // label7
@@ -219,6 +234,8 @@
             // 
             // VarOlanUrunGroupBox
             // 
+            this.VarOlanUrunGroupBox.Controls.Add(this.Brandtextbox);
+            this.VarOlanUrunGroupBox.Controls.Add(this.Categorytextbox);
             this.VarOlanUrunGroupBox.Controls.Add(this.label16);
             this.VarOlanUrunGroupBox.Controls.Add(this.lblTotalStock);
             this.VarOlanUrunGroupBox.Controls.Add(this.label8);
@@ -232,8 +249,6 @@
             this.VarOlanUrunGroupBox.Controls.Add(this.SalePricetextbox);
             this.VarOlanUrunGroupBox.Controls.Add(this.Stocktextbox);
             this.VarOlanUrunGroupBox.Controls.Add(this.ProductNametextbox);
-            this.VarOlanUrunGroupBox.Controls.Add(this.Brandcombobox);
-            this.VarOlanUrunGroupBox.Controls.Add(this.Categorycombobox);
             this.VarOlanUrunGroupBox.Controls.Add(this.StockCodetextbox);
             this.VarOlanUrunGroupBox.Controls.Add(this.AddProducts_buttonAddExisting);
             this.VarOlanUrunGroupBox.Location = new System.Drawing.Point(289, 26);
@@ -242,6 +257,41 @@
             this.VarOlanUrunGroupBox.TabIndex = 0;
             this.VarOlanUrunGroupBox.TabStop = false;
             this.VarOlanUrunGroupBox.Text = "Existing Product";
+            // 
+            // Brandtextbox
+            // 
+            this.Brandtextbox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Brandtextbox.Location = new System.Drawing.Point(103, 93);
+            this.Brandtextbox.Name = "Brandtextbox";
+            this.Brandtextbox.ReadOnly = true;
+            this.Brandtextbox.Size = new System.Drawing.Size(121, 20);
+            this.Brandtextbox.TabIndex = 32;
+            // 
+            // Categorytextbox
+            // 
+            this.Categorytextbox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Categorytextbox.Location = new System.Drawing.Point(103, 61);
+            this.Categorytextbox.Name = "Categorytextbox";
+            this.Categorytextbox.ReadOnly = true;
+            this.Categorytextbox.Size = new System.Drawing.Size(121, 20);
+            this.Categorytextbox.TabIndex = 31;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(13, 297);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(65, 13);
+            this.label16.TabIndex = 30;
+            this.label16.Text = "Total Stock:";
+            // 
+            // lblTotalStock
+            // 
+            this.lblTotalStock.AutoSize = true;
+            this.lblTotalStock.Location = new System.Drawing.Point(84, 297);
+            this.lblTotalStock.Name = "lblTotalStock";
+            this.lblTotalStock.Size = new System.Drawing.Size(0, 13);
+            this.lblTotalStock.TabIndex = 29;
             // 
             // label8
             // 
@@ -308,64 +358,58 @@
             // 
             // PurchasePricetextbox
             // 
+            this.PurchasePricetextbox.BackColor = System.Drawing.SystemColors.ControlDark;
             this.PurchasePricetextbox.Location = new System.Drawing.Point(103, 240);
             this.PurchasePricetextbox.Name = "PurchasePricetextbox";
+            this.PurchasePricetextbox.ReadOnly = true;
             this.PurchasePricetextbox.Size = new System.Drawing.Size(121, 20);
-            this.PurchasePricetextbox.TabIndex = 21;
+            this.PurchasePricetextbox.TabIndex = 22;
             // 
             // SalePricetextbox
             // 
+            this.SalePricetextbox.BackColor = System.Drawing.SystemColors.ControlDark;
             this.SalePricetextbox.Location = new System.Drawing.Point(103, 205);
             this.SalePricetextbox.Name = "SalePricetextbox";
+            this.SalePricetextbox.ReadOnly = true;
             this.SalePricetextbox.Size = new System.Drawing.Size(121, 20);
-            this.SalePricetextbox.TabIndex = 20;
+            this.SalePricetextbox.TabIndex = 21;
             // 
             // Stocktextbox
             // 
+            this.Stocktextbox.BackColor = System.Drawing.SystemColors.Control;
             this.Stocktextbox.Location = new System.Drawing.Point(103, 170);
             this.Stocktextbox.Name = "Stocktextbox";
             this.Stocktextbox.Size = new System.Drawing.Size(121, 20);
-            this.Stocktextbox.TabIndex = 19;
+            this.Stocktextbox.TabIndex = 20;
             // 
             // ProductNametextbox
             // 
+            this.ProductNametextbox.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ProductNametextbox.Location = new System.Drawing.Point(103, 135);
             this.ProductNametextbox.Name = "ProductNametextbox";
+            this.ProductNametextbox.ReadOnly = true;
             this.ProductNametextbox.Size = new System.Drawing.Size(121, 20);
-            this.ProductNametextbox.TabIndex = 18;
-            // 
-            // Brandcombobox
-            // 
-            this.Brandcombobox.FormattingEnabled = true;
-            this.Brandcombobox.Location = new System.Drawing.Point(103, 99);
-            this.Brandcombobox.Name = "Brandcombobox";
-            this.Brandcombobox.Size = new System.Drawing.Size(121, 21);
-            this.Brandcombobox.TabIndex = 17;
-            // 
-            // Categorycombobox
-            // 
-            this.Categorycombobox.FormattingEnabled = true;
-            this.Categorycombobox.Location = new System.Drawing.Point(103, 63);
-            this.Categorycombobox.Name = "Categorycombobox";
-            this.Categorycombobox.Size = new System.Drawing.Size(121, 21);
-            this.Categorycombobox.TabIndex = 16;
+            this.ProductNametextbox.TabIndex = 19;
             // 
             // StockCodetextbox
             // 
+            this.StockCodetextbox.BackColor = System.Drawing.SystemColors.Control;
             this.StockCodetextbox.Location = new System.Drawing.Point(103, 28);
             this.StockCodetextbox.Name = "StockCodetextbox";
             this.StockCodetextbox.Size = new System.Drawing.Size(121, 20);
-            this.StockCodetextbox.TabIndex = 15;
+            this.StockCodetextbox.TabIndex = 16;
             this.StockCodetextbox.TextChanged += new System.EventHandler(this.StockCodetextbox_TextChanged);
             // 
             // AddProducts_buttonAddExisting
             // 
+            this.AddProducts_buttonAddExisting.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.AddProducts_buttonAddExisting.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddProducts_buttonAddExisting.Location = new System.Drawing.Point(143, 297);
             this.AddProducts_buttonAddExisting.Name = "AddProducts_buttonAddExisting";
             this.AddProducts_buttonAddExisting.Size = new System.Drawing.Size(75, 23);
-            this.AddProducts_buttonAddExisting.TabIndex = 14;
+            this.AddProducts_buttonAddExisting.TabIndex = 23;
             this.AddProducts_buttonAddExisting.Text = "Add";
-            this.AddProducts_buttonAddExisting.UseVisualStyleBackColor = true;
+            this.AddProducts_buttonAddExisting.UseVisualStyleBackColor = false;
             this.AddProducts_buttonAddExisting.Click += new System.EventHandler(this.AddProducts_buttonAddExisting_Click);
             // 
             // AddProducts_buttonExit
@@ -379,28 +423,45 @@
             this.AddProducts_buttonExit.TabStop = false;
             this.AddProducts_buttonExit.Click += new System.EventHandler(this.AddProducts_buttonExit_Click);
             // 
-            // lblTotalStock
+            // AddProducts_labelWelcomeEmail
             // 
-            this.lblTotalStock.AutoSize = true;
-            this.lblTotalStock.Location = new System.Drawing.Point(84, 297);
-            this.lblTotalStock.Name = "lblTotalStock";
-            this.lblTotalStock.Size = new System.Drawing.Size(0, 13);
-            this.lblTotalStock.TabIndex = 29;
+            this.AddProducts_labelWelcomeEmail.AutoSize = true;
+            this.AddProducts_labelWelcomeEmail.Location = new System.Drawing.Point(376, 7);
+            this.AddProducts_labelWelcomeEmail.Name = "AddProducts_labelWelcomeEmail";
+            this.AddProducts_labelWelcomeEmail.Size = new System.Drawing.Size(32, 13);
+            this.AddProducts_labelWelcomeEmail.TabIndex = 21;
+            this.AddProducts_labelWelcomeEmail.Text = "Email";
+            this.AddProducts_labelWelcomeEmail.Visible = false;
             // 
-            // label16
+            // AddProducts_labelWelcomeName
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(13, 297);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(65, 13);
-            this.label16.TabIndex = 30;
-            this.label16.Text = "Total Stock:";
+            this.AddProducts_labelWelcomeName.AutoSize = true;
+            this.AddProducts_labelWelcomeName.Location = new System.Drawing.Point(424, 7);
+            this.AddProducts_labelWelcomeName.Name = "AddProducts_labelWelcomeName";
+            this.AddProducts_labelWelcomeName.Size = new System.Drawing.Size(35, 13);
+            this.AddProducts_labelWelcomeName.TabIndex = 22;
+            this.AddProducts_labelWelcomeName.Text = "Name";
+            this.AddProducts_labelWelcomeName.Visible = false;
+            // 
+            // AddProducts_labelWelcomeUserType
+            // 
+            this.AddProducts_labelWelcomeUserType.AutoSize = true;
+            this.AddProducts_labelWelcomeUserType.Location = new System.Drawing.Point(472, 6);
+            this.AddProducts_labelWelcomeUserType.Name = "AddProducts_labelWelcomeUserType";
+            this.AddProducts_labelWelcomeUserType.Size = new System.Drawing.Size(53, 13);
+            this.AddProducts_labelWelcomeUserType.TabIndex = 23;
+            this.AddProducts_labelWelcomeUserType.Text = "UserType";
+            this.AddProducts_labelWelcomeUserType.Visible = false;
             // 
             // AddProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(600, 400);
+            this.Controls.Add(this.AddProducts_labelWelcomeUserType);
+            this.Controls.Add(this.AddProducts_labelWelcomeName);
+            this.Controls.Add(this.AddProducts_labelWelcomeEmail);
             this.Controls.Add(this.AddProducts_buttonExit);
             this.Controls.Add(this.VarOlanUrunGroupBox);
             this.Controls.Add(this.yeniUrunGroupBox);
@@ -415,6 +476,7 @@
             this.VarOlanUrunGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddProducts_buttonExit)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -448,12 +510,15 @@
         private System.Windows.Forms.TextBox SalePricetextbox;
         private System.Windows.Forms.TextBox Stocktextbox;
         private System.Windows.Forms.TextBox ProductNametextbox;
-        private System.Windows.Forms.ComboBox Brandcombobox;
-        private System.Windows.Forms.ComboBox Categorycombobox;
         private System.Windows.Forms.TextBox StockCodetextbox;
         private System.Windows.Forms.Button AddProducts_buttonAddExisting;
         private System.Windows.Forms.PictureBox AddProducts_buttonExit;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lblTotalStock;
+        private System.Windows.Forms.Label AddProducts_labelWelcomeEmail;
+        private System.Windows.Forms.Label AddProducts_labelWelcomeName;
+        private System.Windows.Forms.Label AddProducts_labelWelcomeUserType;
+        private System.Windows.Forms.TextBox Brandtextbox;
+        private System.Windows.Forms.TextBox Categorytextbox;
     }
 }

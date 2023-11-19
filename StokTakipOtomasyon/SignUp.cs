@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Net.Mail;
 
 namespace StokTakipOtomasyon
 {
@@ -21,10 +22,8 @@ namespace StokTakipOtomasyon
         }
         private void Cleaner() 
         {
-            SignUp_textboxUserName.Text = "";
             SignUp_textboxName.Text = "";
             SignUp_textboxLastName.Text = "";
-            SignUp_comboboxUserType.Text = "";
             SignUp_textboxEmail.Text = "";
             SignUp_textboxPassword.Text = "";
             SignUp_comboboxGender.Text = "";
@@ -33,28 +32,45 @@ namespace StokTakipOtomasyon
 
         private void SignUp_buttonSignUp_Click(object sender, EventArgs e)
         {
-            if (SignUp_textboxUserName.Text == "" || SignUp_textboxName.Text == "" || SignUp_textboxLastName.Text == "" ||
-                SignUp_comboboxUserType.Text == "" || SignUp_textboxEmail.Text == "" || SignUp_textboxPassword.Text == "" ||
-                SignUp_comboboxGender.Text == "")
-                MessageBox.Show("Flease Fill All Fields");
+            if (SignUp_textboxName.Text == "" || SignUp_textboxEmail.Text == "" || SignUp_textboxPassword.Text == "")
+                MessageBox.Show("Please Fill All Fields");
             else
             {
                 baglanti.Open();
-                SqlCommand komut = new SqlCommand("insert into tbl_Users(UserName,Name,LastName,UserType,Email,Password,Gender) " +
-                    " values(@UserName,@Name,@LastName,@UserType,@Email,@Password,@Gender)", baglanti);
-                komut.Parameters.AddWithValue("@UserName", SignUp_textboxUserName.Text);
-                komut.Parameters.AddWithValue("@Name", SignUp_textboxName.Text);
-                komut.Parameters.AddWithValue("@LastName", SignUp_textboxLastName.Text);
-                komut.Parameters.AddWithValue("@UserType", SignUp_comboboxUserType.Text);
-                komut.Parameters.AddWithValue("@Email", SignUp_textboxEmail.Text);
-                komut.Parameters.AddWithValue("@Password", SignUp_textboxPassword.Text);
-                komut.Parameters.AddWithValue("@Gender", SignUp_comboboxGender.Text);
-                komut.ExecuteNonQuery();
+                SqlCommand userControl = new SqlCommand("sp_UserControl", baglanti);
+                userControl.CommandType = CommandType.StoredProcedure;
+                userControl.Parameters.Add("Email", SqlDbType.NVarChar, 50).Value = SignUp_textboxEmail.Text;
+                SqlDataReader reader = userControl.ExecuteReader();
+                if (reader.Read())
+                {
+                    MessageBox.Show("baska mail gir bu mecvut");
+                }
+                else
+                {
+                    SendMail();
+                }
                 baglanti.Close();
-                MessageBox.Show("Succesfull!");
-                Cleaner();
-                this.Close();
+
             }
+        }
+        Random rnd = new Random();
+        int number;
+        MailMessage mailMessage = new MailMessage();
+
+        void SendMail()
+        {
+            number = rnd.Next(100000, 999999);
+            mailMessage.From = new MailAddress("ceza_klas@hotmail.com");
+            mailMessage.To.Add(SignUp_textboxEmail.Text);
+            mailMessage.Subject = "Kayıt Ol ";
+            mailMessage.Body = "Doğrulama Kodunuz : " + number;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Credentials = new System.Net.NetworkCredential("ceza_klas@hotmail.com", "erdem1526yildiz");
+            smtp.Host = "smtp.outlook.com"; //smtp.gmail.com
+            smtp.EnableSsl = true;
+            smtp.Port = 587;
+            smtp.Send(mailMessage);
+            MessageBox.Show("Lütfen Mail Adresinizi Kontrol Ediniz.");
         }
 
         private void SignUp_buttonHideShow_Click(object sender, EventArgs e)
@@ -77,6 +93,42 @@ namespace StokTakipOtomasyon
             DialogResult x = MessageBox.Show("Are you sure you want to exit?", "exit", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (x == DialogResult.Yes)
                 this.Close();
+        }
+
+        private void SignUp_textboxPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == 32)
+            {
+                e.Handled = true;
+            }
+        }
+
+        
+
+        private void resetPassword_buttonVerify_Click(object sender, EventArgs e)
+        {
+            if (int.Parse(SignUp_verify.Text) == int.Parse(number.ToString()))
+            {
+
+
+                baglanti.Open();
+                SqlCommand komut = new SqlCommand("insert into tbl_Users(Name,LastName,UserType,Email,Password,Gender) values(@Name,@LastName,@UserType,@Email,@Password,@Gender)", baglanti);
+                //komut.CommandType = CommandType.StoredProcedure;
+                komut.Parameters.AddWithValue("@Name",SignUp_textboxName.Text);
+                komut.Parameters.AddWithValue("@LastName",SignUp_textboxLastName.Text);
+                komut.Parameters.AddWithValue("@UserType", SignUp_textboxUserType.Text);
+                komut.Parameters.AddWithValue("@Email",SignUp_textboxEmail.Text);
+                komut.Parameters.AddWithValue("@Password",SignUp_textboxPassword.Text);
+                komut.Parameters.AddWithValue("@Gender",SignUp_comboboxGender.Text);
+                komut.ExecuteNonQuery();
+                baglanti.Close();
+                MessageBox.Show("Succesfull");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Kodlar uyusmadi");
+            }
         }
     }
 }

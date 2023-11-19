@@ -23,14 +23,10 @@ namespace StokTakipOtomasyon
         {
             DialogResult x = MessageBox.Show("Are you sure you want to exit?", "exit", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (x == DialogResult.Yes)
-                //Environment.Exit(0);
                 Application.Exit();
         }
-
-        private void Users_buttonBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
+        
         SqlConnection baglanti = new SqlConnection("Data Source=EXALOYD\\SQLEXPRESS;Initial Catalog=StokTakipOtomasyonu;Integrated Security=True");
         DataSet daset = new DataSet();
         private void GetCategory()
@@ -47,17 +43,40 @@ namespace StokTakipOtomasyon
         
         private void ListOfProducts_Load(object sender, EventArgs e)
         {
+            ListOfProducts_labelWelcomeEmail.Text = MainPage.publicEmail;
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand("select * from tbl_Users where Email like '" + ListOfProducts_labelWelcomeEmail.Text + "'", baglanti);
+            SqlDataReader reader = komut.ExecuteReader();
+            while (reader.Read())
+            {
+                ListOfProducts_labelWelcomeEmail.Text = reader["Email"].ToString();
+                ListOfProducts_labelWelcomeUserType.Text = reader["UserType"].ToString();
+                ListOfProducts_labelWelcomeName.Text = reader["Name"].ToString();
+            }
+            baglanti.Close();
             GetProduct();
             GetCategory();
         }
 
         private void GetProduct()
         {
-            baglanti.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from tbl_Product", baglanti);
-            adapter.Fill(daset, "tbl_Product");
-            dataGridView3.DataSource = daset.Tables["tbl_Product"];
-            baglanti.Close();
+            if (ListOfProducts_labelWelcomeUserType.Text == "Admin")
+            {
+                baglanti.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter("select * from tbl_Product", baglanti);
+                adapter.Fill(daset, "tbl_Product");
+                dataGridView3.DataSource = daset.Tables["tbl_Product"];
+                baglanti.Close();
+            }
+            else
+            {
+                baglanti.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter("select * from tbl_Product where Brand like'" + ListOfProducts_labelWelcomeName.Text + "'", baglanti);
+                adapter.Fill(daset, "tbl_Product");
+                dataGridView3.DataSource = daset.Tables["tbl_Product"];
+                baglanti.Close();
+            }
+
         }
         private void Cleaner()
         {
@@ -82,19 +101,25 @@ namespace StokTakipOtomasyon
 
         private void ListOfProducts_buttonUpdate_Click(object sender, EventArgs e)
         {
-            baglanti.Open();
-            SqlCommand komut = new SqlCommand("update tbl_Product set ProductName=@ProductName, Stock=@Stock ," +
-                "SalePrice=@SalePrice, PurchasePrice=@PurchasePrice where StockCode=@StockCode", baglanti);
-            komut.Parameters.AddWithValue("@StockCode", ListOfProducts_textboxStockCode.Text);
-            komut.Parameters.AddWithValue("@ProductName", ListOfProducts_textboxStockName.Text);
-            komut.Parameters.AddWithValue("@Stock", int.Parse(ListOfProducts_textboxStock.Text));
-            komut.Parameters.AddWithValue("@SalePrice", double.Parse(ListOfProducts_textboxSalePrice.Text));
-            komut.Parameters.AddWithValue("@PurchasePrice", double.Parse(ListOfProducts_textboxPurchasePrice.Text));
-            komut.ExecuteNonQuery();
-            baglanti.Close();
-            daset.Tables["tbl_Product"].Clear();
-            GetProduct();
-            MessageBox.Show("Successfully Updated!");
+            if (int.Parse(ListOfProducts_textboxStock.Text) < 0)
+                MessageBox.Show("Enter a valid stock quantity!");
+            else
+            {
+                baglanti.Open();
+                SqlCommand komut = new SqlCommand("update tbl_Product set ProductName=@ProductName, Stock=@Stock ," +
+                    "SalePrice=@SalePrice, PurchasePrice=@PurchasePrice where StockCode=@StockCode", baglanti);
+                komut.Parameters.AddWithValue("@StockCode", ListOfProducts_textboxStockCode.Text);
+                komut.Parameters.AddWithValue("@ProductName", ListOfProducts_textboxStockName.Text);
+                komut.Parameters.AddWithValue("@Stock", int.Parse(ListOfProducts_textboxStock.Text));
+                komut.Parameters.AddWithValue("@SalePrice", double.Parse(ListOfProducts_textboxSalePrice.Text));
+                komut.Parameters.AddWithValue("@PurchasePrice", double.Parse(ListOfProducts_textboxPurchasePrice.Text));
+                komut.ExecuteNonQuery();
+                baglanti.Close();
+                daset.Tables["tbl_Product"].Clear();
+                GetProduct();
+                MessageBox.Show("Successfully Updated!");
+            }
+            
             Cleaner();
         }
 
@@ -110,6 +135,8 @@ namespace StokTakipOtomasyon
                 komut.ExecuteNonQuery();
                 baglanti.Close();
                 MessageBox.Show("Successfully Updated!");
+                daset.Tables["tbl_Product"].Clear();
+                GetProduct();
                 Cleaner();
             }
             else
@@ -130,6 +157,48 @@ namespace StokTakipOtomasyon
                 ListOfProducts_comboboxBrand.Items.Add(read["Brand"].ToString());
             }
             baglanti.Close();
+        }
+
+        private void ListOfProducts_buttonDelete_Click(object sender, EventArgs e)
+        {
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand("delete from tbl_Product where StockCode='" + dataGridView3.CurrentRow.Cells[0].Value.ToString() + "'", baglanti);
+            komut.ExecuteNonQuery();
+            baglanti.Close();
+            MessageBox.Show("Succesfull!");
+            daset.Tables["tbl_Product"].Clear();
+            GetProduct();
+            Cleaner();
+        }
+
+        private void ListOfProducts_textboxSearch_TextChanged(object sender, EventArgs e)
+        {
+            DataTable table = new DataTable();
+            baglanti.Open();
+            SqlDataAdapter adptr = new SqlDataAdapter("select * from tbl_Product where StockCode like '%" + ListOfProducts_textboxSearch.Text + "%'", baglanti);
+            adptr.Fill(table);
+            dataGridView3.DataSource = table;
+            baglanti.Close();
+        }
+
+        private void ListOfProducts_buttonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ListOfProducts_textboxStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void ListOfProducts_textboxStockCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

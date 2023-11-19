@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_resetPassword = new System.Windows.Forms.Label();
             this.mainPage_buttonHideShow = new System.Windows.Forms.Button();
@@ -49,7 +50,9 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightGreen;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.lbl_resetPassword);
             this.panel1.Controls.Add(this.mainPage_buttonHideShow);
             this.panel1.Controls.Add(this.lbl_password);
@@ -66,7 +69,7 @@
             // lbl_resetPassword
             // 
             this.lbl_resetPassword.AutoSize = true;
-            this.lbl_resetPassword.ForeColor = System.Drawing.Color.White;
+            this.lbl_resetPassword.ForeColor = System.Drawing.Color.Black;
             this.lbl_resetPassword.Location = new System.Drawing.Point(340, 394);
             this.lbl_resetPassword.Name = "lbl_resetPassword";
             this.lbl_resetPassword.Size = new System.Drawing.Size(90, 13);
@@ -114,6 +117,7 @@
             this.mainPage_textboxPassword.PasswordChar = '*';
             this.mainPage_textboxPassword.Size = new System.Drawing.Size(283, 20);
             this.mainPage_textboxPassword.TabIndex = 2;
+            this.mainPage_textboxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mainPage_textboxPassword_KeyPress);
             // 
             // mainPage_textboxEmail
             // 
@@ -121,16 +125,17 @@
             this.mainPage_textboxEmail.Name = "mainPage_textboxEmail";
             this.mainPage_textboxEmail.Size = new System.Drawing.Size(283, 20);
             this.mainPage_textboxEmail.TabIndex = 1;
+            this.mainPage_textboxEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mainPage_textboxEmail_KeyPress);
             // 
             // mainPage_buttonLogin
             // 
-            this.mainPage_buttonLogin.BackColor = System.Drawing.Color.SeaGreen;
+            this.mainPage_buttonLogin.BackColor = System.Drawing.Color.DimGray;
             this.mainPage_buttonLogin.FlatAppearance.BorderSize = 0;
             this.mainPage_buttonLogin.Font = new System.Drawing.Font("Microsoft Uighur", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainPage_buttonLogin.ForeColor = System.Drawing.Color.White;
             this.mainPage_buttonLogin.Location = new System.Drawing.Point(211, 423);
             this.mainPage_buttonLogin.Name = "mainPage_buttonLogin";
-            this.mainPage_buttonLogin.Size = new System.Drawing.Size(105, 44);
+            this.mainPage_buttonLogin.Size = new System.Drawing.Size(103, 33);
             this.mainPage_buttonLogin.TabIndex = 3;
             this.mainPage_buttonLogin.Text = "Login";
             this.mainPage_buttonLogin.UseVisualStyleBackColor = false;
@@ -149,8 +154,8 @@
             // 
             // PanelSignUp
             // 
-            this.PanelSignUp.BackColor = System.Drawing.Color.Transparent;
-            this.PanelSignUp.BackgroundImage = global::StokTakipOtomasyon.Properties.Resources.backgroundMainPage;
+            this.PanelSignUp.BackColor = System.Drawing.Color.DimGray;
+            this.PanelSignUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PanelSignUp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelSignUp.Controls.Add(this.label2);
             this.PanelSignUp.Controls.Add(this.mainPage_buttonSignUp);

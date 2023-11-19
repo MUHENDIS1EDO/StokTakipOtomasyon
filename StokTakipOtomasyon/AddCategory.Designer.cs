@@ -57,6 +57,7 @@
             // 
             // AddCategory_textboxCategory
             // 
+            this.AddCategory_textboxCategory.BackColor = System.Drawing.SystemColors.Control;
             this.AddCategory_textboxCategory.Location = new System.Drawing.Point(71, 66);
             this.AddCategory_textboxCategory.Name = "AddCategory_textboxCategory";
             this.AddCategory_textboxCategory.Size = new System.Drawing.Size(162, 20);
@@ -64,18 +65,21 @@
             // 
             // AddCategory_buttonAdd
             // 
+            this.AddCategory_buttonAdd.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.AddCategory_buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddCategory_buttonAdd.Location = new System.Drawing.Point(158, 112);
             this.AddCategory_buttonAdd.Name = "AddCategory_buttonAdd";
             this.AddCategory_buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.AddCategory_buttonAdd.TabIndex = 24;
             this.AddCategory_buttonAdd.Text = "Add";
-            this.AddCategory_buttonAdd.UseVisualStyleBackColor = true;
+            this.AddCategory_buttonAdd.UseVisualStyleBackColor = false;
             this.AddCategory_buttonAdd.Click += new System.EventHandler(this.AddCategory_buttonAdd_Click);
             // 
             // AddCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(300, 200);
             this.Controls.Add(this.AddCategory_buttonAdd);
             this.Controls.Add(this.AddCategory_textboxCategory);

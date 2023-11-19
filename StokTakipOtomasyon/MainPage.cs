@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace StokTakipOtomasyon
 {
     public partial class MainPage : Form
     {
+        public static string publicEmail;
+
+        SqlConnection baglanti = new SqlConnection("Data Source=EXALOYD\\SQLEXPRESS;Initial Catalog=StokTakipOtomasyonu;Integrated Security=True");
         public MainPage()
         {
             InitializeComponent();
@@ -43,11 +47,7 @@ namespace StokTakipOtomasyon
             }
         }
 
-        private void lbl_resetPassword_Click(object sender, EventArgs e)
-        {
-            ResetPassword resetPassword = new ResetPassword();
-            resetPassword.Show();
-        }
+        
 
 
         private void mainPage_buttonSignUp_Click(object sender, EventArgs e)
@@ -58,11 +58,46 @@ namespace StokTakipOtomasyon
 
         private void mainPage_buttonLogin_Click(object sender, EventArgs e)
         {
-            HomePage homePage = new HomePage();
-            homePage.Show();
-            this.Hide();
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand("sp_UserLogin", baglanti);
+            komut.CommandType = CommandType.StoredProcedure;
+            komut.Parameters.Add("@Email", SqlDbType.VarChar, 50).Value = mainPage_textboxEmail.Text;
+            komut.Parameters.Add("@Sifre", SqlDbType.VarChar, 50).Value = mainPage_textboxPassword.Text;
+            SqlDataReader reader = komut.ExecuteReader();
+            if (reader.Read())
+            {
+                MessageBox.Show("Login Succesfully");
+                publicEmail = mainPage_textboxEmail.Text;
+                HomePage homePage = new HomePage();
+                homePage.Show();
+                this.Hide();
+            }
+            else
+                MessageBox.Show("Check your email or password!");
+
+            baglanti.Close();
         }
 
-        
+        private void mainPage_textboxEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == 32)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void mainPage_textboxPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == 32)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void lbl_resetPassword_Click(object sender, EventArgs e)
+        {
+            ChangePassword changePassword = new ChangePassword();
+            changePassword.ShowDialog();
+        }
     }
 }
